@@ -2,3 +2,5 @@
 number_of_instances="2"
 ingress_ports=["22", "80"]
 ingress_cidr_blocks=["54.191.190.104/32", "54.191.190.104/32"]
+cd_app_name="tfe_klt_app"
+cd_group_name="tfe_klt_app_deploy_group"
