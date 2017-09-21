@@ -4,10 +4,10 @@ variable "number_of_instances" {
 
 variable "ingress_ports" {
   type = "list"
-  default = []
+  default = ["22","80"]
 }
 
 variable "ingress_cidr_blocks" {
   type = "list"
-  default = []
+  default = ["54.191.190.104/32","54.191.190.104/32"]
 }
