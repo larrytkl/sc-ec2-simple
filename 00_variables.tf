@@ -5,19 +5,19 @@ variable "number_of_instances" {
 variable "lb_ingress_ports" {
   description = "Load balancer's internet facing ports"
   type = "list"
-#  default = []
+  default = []
 }
 
 variable "lb_ingress_cidr_blocks" {
   description = "Allowed ips to hit load balancer"
   type = "list"
-#  default = []
+  default = []
 }
 
 variable "ec2_ingress_ports" {
   description = "Allowed ports to be hit from load balancer to EC2."
   type = "list"
-#  default = []
+  default = []
 }
 
 variable "cd_app_name" {
