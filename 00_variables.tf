@@ -1,15 +1,23 @@
 variable "number_of_instances" {
-  default = "1"
+  default = "2"
 }
 
-variable "ingress_ports" {
+variable "lb_ingress_ports" {
+  description = "Load balancer's internet facing ports"
   type = "list"
-  default = ["22","80"]
+  default = []
 }
 
-variable "ingress_cidr_blocks" {
+variable "lb_ingress_cidr_blocks" {
+  description = "Allowed ips to hit load balancer"
   type = "list"
-  default = ["54.191.190.104/32","54.191.190.104/32"]
+  default = []
+}
+
+variable "ec2_ingress_ports" {
+  description = "Allowed ports to be hit from load balancer to EC2."
+  type = "list"
+  default = []
 }
 
 variable "cd_app_name" {

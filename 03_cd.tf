@@ -79,13 +79,16 @@ resource "aws_codedeploy_app" "code_deploy_app" {
 
 resource "aws_codedeploy_deployment_group" "code_deploy_app_deploy_group" {
   app_name = "${aws_codedeploy_app.code_deploy_app.name}"
-  deployment_group_name = "${var.cd_group_name}"
+  deployment_group_name = "${var.cd_group_name}-${data.aws_ami.app_ami.id}"
   service_role_arn = "${aws_iam_role.code_deploy_service_role.arn}"
   deployment_config_name = "CodeDeployDefault.OneAtATime"
+  autoscaling_groups = ["${aws_autoscaling_group.asg.name}"]
+  /*
   ec2_tag_filter {
     key = "seal_id"
     type = "KEY_AND_VALUE"
     value = "${data.null_data_source.metadata.inputs["seal_id"]}"
   }
+  */
 }
 ### END CodeDeploy App, and Deployment Group
